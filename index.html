@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN IN</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #6ad5ff;
+        }
+        .container {
+            vertical-align: middle;
+            max-width: 300px;
+            margin: 200px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #1c3cf3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>LOGIN IN</h2>
+        <form id="signup-form">
+            <label for="email">User Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="validateForm()">Login in</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address.");
+            } else if (!passwordRegex.test(password)) {
+                alert("Password must be at least 8 characters and contain at least one uppercase letter, one special character, and one number.");
+            } else {
+                alert("Login-in successful!");
+            }
+        }
+    </script>
+</body>
+</html>
